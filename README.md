@@ -11,8 +11,7 @@ Ein minimales Demo-Projekt das zeigt, wie man **Environment-basierte Feature-Fla
 
 ## Die Lösung
 
-**Nicht:** Zwei Branches (führt zu Merge-Hölle)  
-**Sondern:** Feature-Flags über Environment-Variablen
+- Feature-Flags über Environment-Variablen
 
 ## Quick Start
 
