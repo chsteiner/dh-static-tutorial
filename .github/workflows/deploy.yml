@@ -11,10 +11,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Bei Push auf main
+  # Bei Push auf main oder master
   push:
-    branches: [main]
-  
+    branches: [main, master]
+
   # Manueller Trigger
   workflow_dispatch:
 
