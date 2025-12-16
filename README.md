@@ -18,31 +18,53 @@ npm run build && npm run preview
 
 Der Unterschied ist sofort sichtbar: Verschiedene Daten, verschiedene Features.
 
-## Wie es funktioniert
+## Wie der Umschaltmechanismus funktioniert
 
-**1. Environment-Variablen definieren**
+### Der Ablauf:
 
+**1. Vite lädt automatisch die richtige .env Datei**
+
+```bash
+npm run dev      → Vite lädt .env.local       (VITE_ENABLE_UPLOAD=true)
+npm run build    → Vite lädt .env.production  (VITE_ENABLE_UPLOAD=false)
 ```
-.env.local       → VITE_ENABLE_UPLOAD=true,  VITE_DATA_PATH=./data/local
-.env.production  → VITE_ENABLE_UPLOAD=false, VITE_DATA_PATH=./data/corpus
-```
 
-**2. In Code verwenden** ([src/config.js](src/config.js))
+Vite ersetzt beim Build `import.meta.env.VITE_*` mit den tatsächlichen Werten.
+
+**2. Die Werte werden in config.js verfügbar gemacht** ([src/config.js](src/config.js))
 
 ```js
 export const config = {
-  enableUpload: import.meta.env.VITE_ENABLE_UPLOAD === 'true',
-  dataPath: import.meta.env.VITE_DATA_PATH
+  enableUpload: import.meta.env.VITE_ENABLE_UPLOAD === 'true',  // true oder false
+  dataPath: import.meta.env.VITE_DATA_PATH                      // './data/local' oder './data/corpus'
 }
 ```
 
-**3. Features toggeln** ([src/app.js](src/app.js))
+**3. Der Code entscheidet basierend auf config** ([src/app.js](src/app.js))
 
 ```js
+// Upload-Sektion nur anzeigen wenn enableUpload = true
 if (config.enableUpload) {
-  this.renderUploadSection()  // Nur lokal
+  this.renderUploadSection()
 }
+
+// Manifest von unterschiedlichen Pfaden laden
+await fetch(`${config.dataPath}/manifest.json`)
 ```
+
+### Konkret:
+
+**Lokale Entwicklung (`npm run dev`):**
+- `.env.local` wird geladen
+- `enableUpload = true` → Upload-Sektion wird gerendert
+- `dataPath = './data/local'` → Lädt `data/local/manifest.json`
+
+**Production Build (`npm run build`):**
+- `.env.production` wird geladen
+- `enableUpload = false` → Upload-Sektion wird NICHT gerendert
+- `dataPath = './data/corpus'` → Lädt `data/corpus/manifest.json`
+
+Die Werte werden **zur Build-Zeit fest eingebacken** - es gibt keine Runtime-Logik!
 
 ## GitHub Pages Deployment
 
