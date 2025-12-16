@@ -1,0 +1,12 @@
+{
+  "title": "⚠️ LOKAL-ONLY (nicht auf GitHub)",
+  "description": "Experimentelle Dokumente – NUR in deiner lokalen Entwicklungsumgebung sichtbar",
+  "documents": [
+    {
+      "id": "example-local",
+      "title": "Experimentelles Dokument [NUR LOKAL]",
+      "file": "example-local.xml",
+      "language": "de"
+    }
+  ]
+}

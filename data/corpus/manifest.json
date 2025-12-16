@@ -1,0 +1,12 @@
+{
+  "title": "✅ PRODUKTIV-CORPUS (GitHub Pages)",
+  "description": "Kuratierte, versionierte Dokumente – werden auf GitHub Pages deployed",
+  "documents": [
+    {
+      "id": "nibelungen",
+      "title": "Der Nibelunge Nôt (Auszug) [PRODUKTIV]",
+      "file": "nibelungen.xml",
+      "language": "mhd"
+    }
+  ]
+}

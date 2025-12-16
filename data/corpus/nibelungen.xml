@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>PRODUKTIV-CORPUS: Der Nibelunge Nôt (Auszug)</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>✅ Kuratierter Corpus – wird auf GitHub Pages deployed</p>
+        <p>Diese Datei ist versioniert und öffentlich sichtbar.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Demonstrationsdatei aus data/corpus/</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <lg type="strophe" n="1">
+        <l>Uns ist in alten mæren wunders vil geseit</l>
+        <l>von helden lobebæren, von grôzer arebeit,</l>
+        <l>von fröuden, hôchgezîten, von weinen und von klagen,</l>
+        <l>von küener recken strîten muget ir nu wunder hœren sagen.</l>
+      </lg>
+    </body>
+  </text>
+</TEI>

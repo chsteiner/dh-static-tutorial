@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+
+# Lokale Daten
+# TUTORIAL: Die Beispieldateien (example-*.xml, example-manifest.json) werden committet
+# Alle anderen Dateien in data/local/ sind für persönliche Experimente
+data/local/*
+!data/local/.gitkeep
+!data/local/README.md
+!data/local/example-local.xml
+!data/local/example-manifest.json
+
+# Environment
+# TUTORIAL: .env.local und .env.production werden committet
+# User können .env.development für eigene Overrides nutzen (wird nicht committet)
+.env.development
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

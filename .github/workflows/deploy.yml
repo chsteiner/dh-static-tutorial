@@ -1,0 +1,72 @@
+# GitHub Actions Workflow: Build & Deploy to GitHub Pages
+# 
+# Dieser Workflow:
+# 1. Baut die App mit PRODUCTION Environment (kein Upload)
+# 2. Deployed nach GitHub Pages
+#
+# Setup:
+# 1. Repository Settings → Pages → Source: "GitHub Actions"
+# 2. Bei privatem Repo: Settings → Actions → General → Workflow permissions: "Read and write"
+
+name: Deploy to GitHub Pages
+
+on:
+  # Bei Push auf main
+  push:
+    branches: [main]
+  
+  # Manueller Trigger
+  workflow_dispatch:
+
+# Berechtigungen für GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Nur ein Deployment gleichzeitig
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build for production
+        run: npm run build
+        env:
+          # WICHTIG: Diese Werte überschreiben .env.production
+          VITE_ENABLE_UPLOAD: 'false'
+          VITE_DATA_PATH: './data/corpus'
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

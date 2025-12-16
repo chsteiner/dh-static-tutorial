@@ -1,0 +1,184 @@
+/* Mini Editions-App Styles */
+
+:root {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #333;
+  --color-muted: #666;
+  --color-border: #e0e0e0;
+  --color-primary: #2563eb;
+  --color-dev: #f59e0b;
+  --color-prod: #10b981;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+code {
+  background: #f1f5f9;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Header */
+#header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mode-badge {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.mode-badge.dev {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.mode-badge.prod {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.data-path {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Documents */
+.document-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.doc-button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.doc-button:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.doc-button strong {
+  display: block;
+  color: var(--color-primary);
+}
+
+.doc-button .meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* Viewer */
+#viewer {
+  margin-top: 1.5rem;
+}
+
+.xml-content {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Upload */
+#upload {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.upload-zone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: var(--color-primary);
+  background: #f0f7ff;
+}
+
+.upload-zone input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.upload-zone label {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+.upload-zone small {
+  color: var(--color-muted);
+}
+
+/* States */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-muted);
+}
+
+.loading {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+#upload-preview {
+  margin-top: 1rem;
+}

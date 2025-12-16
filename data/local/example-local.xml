@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>LOCAL ENTWICKLUNG: Experimentelles Dokument</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>⚠️ Dieses Dokument ist NUR lokal sichtbar!</p>
+        <p>Es wird NICHT auf GitHub Pages deployed.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Test-Datei für lokale Entwicklung</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div>
+        <head>Lokales Test-Dokument</head>
+        <p>Dieses Dokument existiert nur in <code>data/local/</code>.</p>
+        <p>Nutze diesen Ordner für:</p>
+        <list>
+          <item>Experimente mit neuen Dokumenten</item>
+          <item>Temporäre Uploads (wenn Upload-Feature aktiv)</item>
+          <item>Testing ohne das Repository zu ändern</item>
+        </list>
+        <p><hi rend="bold">WICHTIG:</hi> Diese Datei wird durch .gitignore NICHT committet!</p>
+      </div>
+    </body>
+  </text>
+</TEI>
