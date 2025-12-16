@@ -62,8 +62,29 @@ Fertig. Bei jedem Push wird automatisch deployed.
 - `src/config.js` → Pattern übernehmen
 
 **Andere Frameworks:**
-- Next.js: `NEXT_PUBLIC_*` statt `VITE_*`
-- React (CRA): `REACT_APP_*` statt `VITE_*`
-- Workflow: Build-Command + Output-Dir anpassen
+
+**Next.js:**
+- `NEXT_PUBLIC_*` statt `VITE_*`
+- Rest identisch
+
+**React (CRA):**
+- `REACT_APP_*` statt `VITE_*`
+- Rest identisch
+
+**Vanilla JS (ohne Build-Tool):**
+```html
+<!-- index.html -->
+<script>
+  const config = {
+    enableUpload: document.body.dataset.env === 'dev',
+    dataPath: document.body.dataset.dataPath
+  }
+</script>
+```
+```bash
+# Build-Script erstellt zwei Versionen:
+# dev.html: <body data-env="dev" data-data-path="./data/local">
+# prod.html: <body data-env="prod" data-data-path="./data/corpus">
+```
 
 **Wichtig:** Keine Secrets in Browser-Code! Environment-Variablen sind im Bundle sichtbar.
