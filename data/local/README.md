@@ -1,54 +1,23 @@
-# 📁 data/local/
+# data/local/
 
-Dieser Ordner demonstriert **lokale Entwicklungsdaten** die NICHT auf GitHub Pages deployed werden.
+Lokale Entwicklungsdaten. Wird NICHT auf GitHub Pages deployed.
 
-## 🎯 Was ist hier?
+## Eigene Daten hinzufügen
 
-- **`example-local.xml`** - Beispieldokument das zeigt, wie lokale Daten aussehen
-- **`example-manifest.json`** - Template für dein eigenes Manifest
-- **`README.md`** - Diese Datei
+```bash
+# Manifest kopieren
+cp data/local/example-manifest.json data/local/manifest.json
 
-Diese `example-*` Dateien sind **Teil des Tutorials** und werden auf GitHub committet.
+# Deine Dateien hinzufügen
+cp mein-dokument.xml data/local/
 
-## 🧪 Eigene Experimente starten
+# manifest.json editieren, dann:
+npm run dev
+```
 
-1. **Kopiere das Example-Manifest:**
-   ```bash
-   cp data/local/example-manifest.json data/local/manifest.json
-   ```
+## Was wird committet?
 
-2. **Füge eigene XML-Dateien hinzu:**
-   ```bash
-   cp mein-dokument.xml data/local/
-   ```
+- `example-*` Dateien → Ja (Tutorial)
+- Deine eigenen Dateien → Nein (gitignored)
 
-3. **Aktualisiere manifest.json:**
-   ```json
-   {
-     "title": "Meine Test-Dokumente",
-     "description": "Lokale Experimente",
-     "documents": [
-       {
-         "id": "test",
-         "title": "Mein Testdokument",
-         "file": "mein-dokument.xml",
-         "language": "de"
-       }
-     ]
-   }
-   ```
-
-4. **Starte den Dev-Server:**
-   ```bash
-   npm run dev
-   ```
-
-## ⚠️ Was wird committet?
-
-- ✅ `example-local.xml` - Tutorial-Beispiel
-- ✅ `example-manifest.json` - Tutorial-Template
-- ✅ `README.md` - Diese Anleitung
-- ❌ `manifest.json` - Deine eigene Version (gitignored)
-- ❌ `*.xml` (außer example-*) - Deine Experimente (gitignored)
-
-Wenn du etwas auf GitHub Pages zeigen willst, verschiebe es nach `data/corpus/`!
+Für Production: Verschiebe nach `data/corpus/`
