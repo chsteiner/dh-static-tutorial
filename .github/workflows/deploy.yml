@@ -47,10 +47,7 @@ jobs:
 
       - name: Build for production
         run: npm run build
-        env:
-          # WICHTIG: Diese Werte überschreiben .env.production
-          VITE_ENABLE_UPLOAD: 'false'
-          VITE_DATA_PATH: './data/corpus'
+        # Vite lädt automatisch .env.production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
